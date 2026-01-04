@@ -1,0 +1,421 @@
+nohup: 忽略输入
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.shenzhewei:accont-book >---------------------
+[INFO] Building accont-book 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.5:run (default-cli) > test-compile @ accont-book >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ accont-book ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ accont-book ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 29 source files with javac [debug release 21] to target/classes
+[INFO] 由于在类路径中发现了一个或多个处理程序，因此启用了
+  批注处理。未来发行版的 javac 可能会禁用批注处理，
+  除非至少按名称指定了一个处理程序 (-processor)，
+  或指定了搜索路径 (--processor-path, --processor-module-path)，
+  或显式启用了批注处理 (-proc:only, -proc:full)。
+  可使用 -Xlint:-options 隐藏此消息。
+  可使用 -proc:none 禁用批注处理。
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ accont-book ---
+[INFO] skip non existing resourceDirectory /home/ywang/accont-book/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ accont-book ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug release 21] to target/test-classes
+[INFO] 由于在类路径中发现了一个或多个处理程序，因此启用了
+  批注处理。未来发行版的 javac 可能会禁用批注处理，
+  除非至少按名称指定了一个处理程序 (-processor)，
+  或指定了搜索路径 (--processor-path, --processor-module-path)，
+  或显式启用了批注处理 (-proc:only, -proc:full)。
+  可使用 -Xlint:-options 隐藏此消息。
+  可使用 -proc:none 禁用批注处理。
+[INFO] 
+[INFO] <<< spring-boot:3.2.5:run (default-cli) < test-compile @ accont-book <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.5:run (default-cli) @ accont-book ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-01-03T14:40:27.299+08:00  INFO 122720 --- [accont-book] [           main] c.s.accont_book.AccontBookApplication    : Starting AccontBookApplication using Java 21.0.9 with PID 122720 (/home/ywang/accont-book/target/classes started by ywang in /home/ywang/accont-book)
+2026-01-03T14:40:27.301+08:00 DEBUG 122720 --- [accont-book] [           main] c.s.accont_book.AccontBookApplication    : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-01-03T14:40:27.302+08:00  INFO 122720 --- [accont-book] [           main] c.s.accont_book.AccontBookApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-01-03T14:40:28.453+08:00  INFO 122720 --- [accont-book] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-01-03T14:40:28.473+08:00  INFO 122720 --- [accont-book] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-03T14:40:28.473+08:00  INFO 122720 --- [accont-book] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-01-03T14:40:28.528+08:00  INFO 122720 --- [accont-book] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-03T14:40:28.530+08:00  INFO 122720 --- [accont-book] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1181 ms
+2026-01-03T14:40:29.244+08:00  INFO 122720 --- [accont-book] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-01-03T14:40:29.252+08:00  INFO 122720 --- [accont-book] [           main] c.s.accont_book.AccontBookApplication    : Started AccontBookApplication in 2.378 seconds (process running for 2.733)
+2026-01-03T14:41:35.112+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-03T14:41:35.112+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-01-03T14:41:35.114+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-01-03T14:41:35.272+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:41:35.272+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:41:35.353+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-03T14:41:35.564+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fe07067
+2026-01-03T14:41:35.567+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-03T14:41:35.578+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:41:35.582+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:41:35.607+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:41:35.607+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:41:35.634+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 0
+2026-01-03T14:41:35.643+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:41:37.468+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:41:37.469+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:41:37.470+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:41:37.473+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:41:38.757+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:41:38.758+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:41:38.759+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:41:38.759+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:41:38.761+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:41:38.762+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:41:38.763+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:41:38.763+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 0
+2026-01-03T14:41:48.135+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:41:48.240+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:41:48.240+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 5(Long)
+2026-01-03T14:41:48.242+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:41:48.247+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.insert         : ==>  Preparing: INSERT INTO tb_transaction (user_id, asset_id, amount, type, category, trans_time) VALUES (?, ?, ?, ?, ?, ?)
+2026-01-03T14:41:48.263+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.insert         : ==> Parameters: 5(Long), 5(Long), 10000(BigDecimal), 2(Integer), 工资(String), 2026-01-03T06:41:39.488(LocalDateTime)
+2026-01-03T14:41:48.272+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.insert         : <==    Updates: 1
+2026-01-03T14:41:48.275+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.s.impl.TransactionServiceImpl      : 流水记录插入成功: id=4
+2026-01-03T14:41:48.275+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:41:48.276+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 5(Long)
+2026-01-03T14:41:48.278+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:41:48.279+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] .s.a.r.A.updateBalanceWithOptimisticLock : ==>  Preparing: UPDATE tb_asset SET balance = balance + ?, version = version + 1 WHERE id = ? AND version = ?
+2026-01-03T14:41:48.280+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] .s.a.r.A.updateBalanceWithOptimisticLock : ==> Parameters: 10000(BigDecimal), 5(Long), 1(Integer)
+2026-01-03T14:41:48.289+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] .s.a.r.A.updateBalanceWithOptimisticLock : <==    Updates: 1
+2026-01-03T14:41:48.290+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.service.impl.AssetServiceImpl      : 资产余额更新成功: assetId=5, amount=10000
+2026-01-03T14:41:48.290+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.s.impl.TransactionServiceImpl      : 记账成功: transactionId=4, assetId=5, type=2, amount=10000
+2026-01-03T14:41:48.395+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:41:48.396+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:41:48.397+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:41:48.400+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 1
+2026-01-03T14:41:48.656+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:41:48.658+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:41:48.658+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:41:48.661+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:03.951+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:03.954+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:42:03.954+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 7(Long)
+2026-01-03T14:42:03.956+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:42:03.956+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.insert         : ==>  Preparing: INSERT INTO tb_transaction (user_id, asset_id, amount, type, category, trans_time) VALUES (?, ?, ?, ?, ?, ?)
+2026-01-03T14:42:03.956+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.insert         : ==> Parameters: 5(Long), 7(Long), 520(BigDecimal), 2(Integer), 红包(String), 2026-01-03T06:41:49.753(LocalDateTime)
+2026-01-03T14:42:03.959+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.insert         : <==    Updates: 1
+2026-01-03T14:42:03.960+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.s.impl.TransactionServiceImpl      : 流水记录插入成功: id=5
+2026-01-03T14:42:03.960+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:42:03.960+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 7(Long)
+2026-01-03T14:42:03.962+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:42:03.962+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] .s.a.r.A.updateBalanceWithOptimisticLock : ==>  Preparing: UPDATE tb_asset SET balance = balance + ?, version = version + 1 WHERE id = ? AND version = ?
+2026-01-03T14:42:03.963+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] .s.a.r.A.updateBalanceWithOptimisticLock : ==> Parameters: 520(BigDecimal), 7(Long), 1(Integer)
+2026-01-03T14:42:03.964+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] .s.a.r.A.updateBalanceWithOptimisticLock : <==    Updates: 1
+2026-01-03T14:42:03.964+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.service.impl.AssetServiceImpl      : 资产余额更新成功: assetId=7, amount=520
+2026-01-03T14:42:03.965+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.s.impl.TransactionServiceImpl      : 记账成功: transactionId=5, assetId=7, type=2, amount=520
+2026-01-03T14:42:04.185+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:04.186+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:04.186+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:04.188+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:04.327+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:04.328+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:04.328+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:04.331+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:08.649+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:08.651+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:08.651+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:08.657+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:09.002+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:09.002+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:09.003+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:09.004+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:21.050+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:21.052+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:21.053+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:21.054+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:22.983+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:22.988+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:22.988+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:22.991+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:23.338+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:23.340+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:23.341+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:23.346+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:30.525+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:30.529+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:30.529+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:30.531+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:30.532+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:30.533+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:30.534+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:30.534+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:31.975+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:31.982+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:31.983+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:31.988+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:32.336+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:32.337+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:32.338+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:32.344+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:32.596+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:32.597+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:32.598+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:32.601+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:33.151+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:33.154+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:33.154+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:33.156+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:33.416+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:33.417+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:33.418+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:33.420+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:33.537+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:33.545+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:33.546+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:33.548+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:35.100+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:35.103+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:35.104+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:35.106+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:35.445+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:35.449+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:35.449+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:35.452+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:38.166+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:38.168+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:38.168+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:38.173+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 2
+2026-01-03T14:42:38.494+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:38.496+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:38.496+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:38.499+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:45.501+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:45.505+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:42:45.505+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 7(Long)
+2026-01-03T14:42:45.506+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:42:45.507+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.insert         : ==>  Preparing: INSERT INTO tb_transaction (user_id, asset_id, amount, type, category, trans_time) VALUES (?, ?, ?, ?, ?, ?)
+2026-01-03T14:42:45.508+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.insert         : ==> Parameters: 5(Long), 7(Long), 20(BigDecimal), 1(Integer), 餐饮(String), 2026-01-03T06:42:39.166(LocalDateTime)
+2026-01-03T14:42:45.510+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.insert         : <==    Updates: 1
+2026-01-03T14:42:45.513+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.s.impl.TransactionServiceImpl      : 流水记录插入成功: id=6
+2026-01-03T14:42:45.514+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:42:45.514+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 7(Long)
+2026-01-03T14:42:45.516+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:42:45.516+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] .s.a.r.A.updateBalanceWithOptimisticLock : ==>  Preparing: UPDATE tb_asset SET balance = balance + ?, version = version + 1 WHERE id = ? AND version = ?
+2026-01-03T14:42:45.516+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] .s.a.r.A.updateBalanceWithOptimisticLock : ==> Parameters: -20(BigDecimal), 7(Long), 2(Integer)
+2026-01-03T14:42:45.520+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] .s.a.r.A.updateBalanceWithOptimisticLock : <==    Updates: 1
+2026-01-03T14:42:45.520+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.service.impl.AssetServiceImpl      : 资产余额更新成功: assetId=7, amount=-20
+2026-01-03T14:42:45.520+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.s.impl.TransactionServiceImpl      : 记账成功: transactionId=6, assetId=7, type=1, amount=20
+2026-01-03T14:42:45.774+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:45.775+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:45.775+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:45.777+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 3
+2026-01-03T14:42:45.861+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:45.864+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:45.865+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:45.867+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:42:55.199+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:55.202+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:42:55.202+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 6(Long)
+2026-01-03T14:42:55.205+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:42:55.205+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.TransactionMapper.insert         : ==>  Preparing: INSERT INTO tb_transaction (user_id, asset_id, amount, type, category, trans_time) VALUES (?, ?, ?, ?, ?, ?)
+2026-01-03T14:42:55.206+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.TransactionMapper.insert         : ==> Parameters: 5(Long), 6(Long), 500(BigDecimal), 1(Integer), 购物(String), 2026-01-03T06:42:46.678(LocalDateTime)
+2026-01-03T14:42:55.208+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.TransactionMapper.insert         : <==    Updates: 1
+2026-01-03T14:42:55.209+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.s.impl.TransactionServiceImpl      : 流水记录插入成功: id=7
+2026-01-03T14:42:55.209+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:42:55.209+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 6(Long)
+2026-01-03T14:42:55.210+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:42:55.211+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] .s.a.r.A.updateBalanceWithOptimisticLock : ==>  Preparing: UPDATE tb_asset SET balance = balance + ?, version = version + 1 WHERE id = ? AND version = ?
+2026-01-03T14:42:55.211+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] .s.a.r.A.updateBalanceWithOptimisticLock : ==> Parameters: -500(BigDecimal), 6(Long), 1(Integer)
+2026-01-03T14:42:55.215+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] .s.a.r.A.updateBalanceWithOptimisticLock : <==    Updates: 1
+2026-01-03T14:42:55.215+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.service.impl.AssetServiceImpl      : 资产余额更新成功: assetId=6, amount=-500
+2026-01-03T14:42:55.215+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.s.impl.TransactionServiceImpl      : 记账成功: transactionId=7, assetId=6, type=1, amount=500
+2026-01-03T14:42:55.455+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:42:55.456+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:42:55.456+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:42:55.460+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 4
+2026-01-03T14:42:55.571+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:42:55.576+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:42:55.577+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:42:55.579+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:09.097+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:09.103+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:43:09.103+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 5(Long)
+2026-01-03T14:43:09.105+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:43:09.105+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.insert         : ==>  Preparing: INSERT INTO tb_transaction (user_id, asset_id, amount, type, category, trans_time) VALUES (?, ?, ?, ?, ?, ?)
+2026-01-03T14:43:09.105+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.insert         : ==> Parameters: 5(Long), 5(Long), 3000(BigDecimal), 1(Integer), 居住(String), 2026-01-03T06:42:58.899(LocalDateTime)
+2026-01-03T14:43:09.108+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.insert         : <==    Updates: 1
+2026-01-03T14:43:09.108+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.s.impl.TransactionServiceImpl      : 流水记录插入成功: id=8
+2026-01-03T14:43:09.108+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:43:09.109+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 5(Long)
+2026-01-03T14:43:09.110+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:43:09.111+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] .s.a.r.A.updateBalanceWithOptimisticLock : ==>  Preparing: UPDATE tb_asset SET balance = balance + ?, version = version + 1 WHERE id = ? AND version = ?
+2026-01-03T14:43:09.111+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] .s.a.r.A.updateBalanceWithOptimisticLock : ==> Parameters: -3000(BigDecimal), 5(Long), 2(Integer)
+2026-01-03T14:43:09.112+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] .s.a.r.A.updateBalanceWithOptimisticLock : <==    Updates: 1
+2026-01-03T14:43:09.113+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.service.impl.AssetServiceImpl      : 资产余额更新成功: assetId=5, amount=-3000
+2026-01-03T14:43:09.113+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.s.impl.TransactionServiceImpl      : 记账成功: transactionId=8, assetId=5, type=1, amount=3000
+2026-01-03T14:43:09.343+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:09.344+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:43:09.344+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:43:09.347+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 5
+2026-01-03T14:43:09.465+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:09.474+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:09.475+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:09.479+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:11.609+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:11.612+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:11.613+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:11.614+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:15.770+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:15.774+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:43:15.775+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:43:15.777+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 5
+2026-01-03T14:43:16.060+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:16.061+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:16.061+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:16.064+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:16.931+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:16.932+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:16.932+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:16.934+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:19.368+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:19.369+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:43:19.370+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:43:19.373+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 5
+2026-01-03T14:43:19.691+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:19.692+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:19.692+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:19.695+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:33.068+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:33.071+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:43:33.071+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 6(Long)
+2026-01-03T14:43:33.074+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:43:33.074+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.TransactionMapper.insert         : ==>  Preparing: INSERT INTO tb_transaction (user_id, asset_id, amount, type, category, trans_time) VALUES (?, ?, ?, ?, ?, ?)
+2026-01-03T14:43:33.075+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.TransactionMapper.insert         : ==> Parameters: 5(Long), 6(Long), 520(BigDecimal), 2(Integer), 红包(String), 2026-01-03T06:43:25.667(LocalDateTime)
+2026-01-03T14:43:33.081+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.TransactionMapper.insert         : <==    Updates: 1
+2026-01-03T14:43:33.082+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.s.impl.TransactionServiceImpl      : 流水记录插入成功: id=9
+2026-01-03T14:43:33.082+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.repository.AssetMapper.findById    : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE id = ?
+2026-01-03T14:43:33.082+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.repository.AssetMapper.findById    : ==> Parameters: 6(Long)
+2026-01-03T14:43:33.084+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.repository.AssetMapper.findById    : <==      Total: 1
+2026-01-03T14:43:33.084+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] .s.a.r.A.updateBalanceWithOptimisticLock : ==>  Preparing: UPDATE tb_asset SET balance = balance + ?, version = version + 1 WHERE id = ? AND version = ?
+2026-01-03T14:43:33.084+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] .s.a.r.A.updateBalanceWithOptimisticLock : ==> Parameters: 520(BigDecimal), 6(Long), 2(Integer)
+2026-01-03T14:43:33.086+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] .s.a.r.A.updateBalanceWithOptimisticLock : <==    Updates: 1
+2026-01-03T14:43:33.086+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.service.impl.AssetServiceImpl      : 资产余额更新成功: assetId=6, amount=520
+2026-01-03T14:43:33.087+08:00  INFO 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.s.impl.TransactionServiceImpl      : 记账成功: transactionId=9, assetId=6, type=2, amount=520
+2026-01-03T14:43:33.324+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:33.332+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:43:33.333+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:43:33.338+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:43:33.433+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:33.434+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:33.434+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:33.448+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:37.225+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:37.225+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:37.226+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:37.228+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:39.318+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:39.321+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:39.321+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:39.323+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:39.585+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:39.586+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:43:39.586+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:43:39.590+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:43:50.628+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:50.629+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:43:50.631+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:43:50.633+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:43:50.633+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:50.634+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:50.635+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:50.636+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:52.167+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:43:52.169+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:43:52.169+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:43:52.171+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:43:52.501+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:43:52.501+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:43:52.502+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:43:52.504+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:44:08.523+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:08.525+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:08.525+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:08.527+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:09.949+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:44:09.951+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:44:09.952+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:44:09.954+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:44:10.284+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:10.284+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:10.285+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:10.287+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:12.427+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:12.428+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:12.428+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:12.429+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:12.688+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:44:12.690+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:44:12.690+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:44:12.692+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:44:42.917+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:42.918+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:42.918+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:42.921+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:44.549+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:44:44.551+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:44:44.551+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:44:44.553+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:44:44.889+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:44.892+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:44.892+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:44.894+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-1] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:46.573+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:46.573+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:46.574+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:46.575+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-2] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:46.835+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:44:46.835+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:44:46.835+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:44:46.837+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-3] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:44:46.918+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:46.919+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:46.919+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:46.920+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-4] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:47.173+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:44:47.173+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:44:47.174+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:44:47.175+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-6] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:44:47.627+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:47.628+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:47.628+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:47.630+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-5] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:47.989+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:44:47.991+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:44:47.992+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:44:47.993+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-8] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6
+2026-01-03T14:44:54.479+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:54.480+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:54.481+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:54.484+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-7] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:58.075+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/assets
+2026-01-03T14:44:58.077+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : ==>  Preparing: SELECT id, user_id, name, balance, version, create_time FROM tb_asset WHERE user_id = ?
+2026-01-03T14:44:58.077+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : ==> Parameters: 5(Long)
+2026-01-03T14:44:58.078+08:00 DEBUG 122720 --- [accont-book] [nio-8080-exec-9] c.s.a.r.AssetMapper.findByUserId         : <==      Total: 3
+2026-01-03T14:44:58.429+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.accont_book.config.JwtInterceptor    : Token 验证成功: userId=5, username=admin1, uri=/api/transactions
+2026-01-03T14:44:58.429+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==>  Preparing: SELECT id, user_id, asset_id, amount, type, category, trans_time FROM tb_transaction WHERE user_id = ? ORDER BY trans_time DESC
+2026-01-03T14:44:58.430+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : ==> Parameters: 5(Long)
+2026-01-03T14:44:58.434+08:00 DEBUG 122720 --- [accont-book] [io-8080-exec-10] c.s.a.r.TransactionMapper.findByUserId   : <==      Total: 6

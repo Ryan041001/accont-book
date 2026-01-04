@@ -29,3 +29,11 @@ logging:
   charset:
     console: UTF-8
     file: UTF-8
+
+# DeepSeek AI Configuration
+deepseek:
+  api:
+    key: your-deepseek-api-key
+    base-url: https://api.deepseek.com/v1
+    model: deepseek-chat
+    timeout: 60000

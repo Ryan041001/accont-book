@@ -21,9 +21,8 @@ import java.time.LocalDateTime;
 public class TransactionDTO {
 
     /**
-     * 用户ID（实际项目中应从登录态获取）
+     * 用户ID（从Token中获取，前端不需要传递）
      */
-    @NotNull(message = "用户ID不能为空")
     private Long userId;
 
     /**

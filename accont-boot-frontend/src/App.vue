@@ -1,6 +1,7 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
 
 const route = useRoute()
 const router = useRouter()
@@ -8,18 +9,51 @@ const router = useRouter()
 const menuItems = [
   { path: '/', title: '首页', icon: 'HomeFilled' },
   { path: '/assets', title: '资产管理', icon: 'Wallet' },
-  { path: '/transactions', title: '记账流水', icon: 'List' }
+  { path: '/transactions', title: '记账流水', icon: 'List' },
+  { path: '/ai-analysis', title: 'AI分析', icon: 'DataAnalysis' }
 ]
 
 const activeMenu = computed(() => route.path)
+const showLayout = computed(() => !route.meta.hidden)
+
+const username = ref('')
+
+onMounted(() => {
+  const userStr = localStorage.getItem('user')
+  if (userStr) {
+    try {
+      const user = JSON.parse(userStr)
+      username.value = user.username
+    } catch (e) {
+      console.error(e)
+    }
+  }
+})
 
 const handleSelect = (path) => {
   router.push(path)
 }
+
+const handleLogout = () => {
+  ElMessageBox.confirm('确定要退出登录吗？', '提示', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning'
+  }).then(() => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    ElMessage.success('已退出登录')
+    router.push('/login')
+  }).catch(() => {})
+}
 </script>
 
 <template>
-  <el-container class="app-container">
+  <div v-if="!showLayout" class="full-screen">
+    <router-view />
+  </div>
+  
+  <el-container v-else class="app-container">
     <!-- 侧边栏 -->
     <el-aside width="220px" class="app-aside">
       <div class="logo">
@@ -43,12 +77,22 @@ const handleSelect = (path) => {
       <el-header class="app-header">
         <div class="header-title">{{ route.meta.title || '首页' }}</div>
         <div class="header-user">
-          <el-avatar :size="36" class="user-avatar">
-            <el-icon :size="20">
-              <User />
-            </el-icon>
-          </el-avatar>
-          <span class="user-name">管理员</span>
+          <el-dropdown @command="handleLogout">
+            <span class="user-info">
+              <el-avatar :size="36" class="user-avatar">
+                <el-icon :size="20">
+                  <User />
+                </el-icon>
+              </el-avatar>
+              <span class="user-name">{{ username || '用户' }}</span>
+              <el-icon class="el-icon--right"><arrow-down /></el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
         </div>
       </el-header>
 
@@ -65,6 +109,11 @@ const handleSelect = (path) => {
 
 <style scoped>
 /* Layout Styles for Elegant Notebook Theme */
+.full-screen {
+  height: 100%;
+  width: 100%;
+}
+
 .app-container {
   height: 100vh;
 }
@@ -178,6 +227,13 @@ const handleSelect = (path) => {
 .header-user:hover {
   border-color: #e5dfd9;
   box-shadow: 0 4px 12px rgba(90, 74, 63, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
 }
 
 .user-avatar {

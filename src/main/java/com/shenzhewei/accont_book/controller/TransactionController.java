@@ -24,13 +24,23 @@ public class TransactionController {
      * 新增记账
      */
     @PostMapping
-    public Result<Transaction> addTransaction(@Valid @RequestBody TransactionDTO dto) {
+    public Result<Transaction> addTransaction(@RequestAttribute("userId") Long userId, @Valid @RequestBody TransactionDTO dto) {
+        dto.setUserId(userId);
         Transaction transaction = transactionService.addTransaction(dto);
         return Result.success(transaction);
     }
 
     /**
-     * 查询用户流水列表
+     * 查询当前用户流水列表（从Token获取用户ID）
+     */
+    @GetMapping
+    public Result<List<Transaction>> listMyTransactions(@RequestAttribute("userId") Long userId) {
+        List<Transaction> transactions = transactionService.listByUserId(userId);
+        return Result.success(transactions);
+    }
+
+    /**
+     * 查询用户流水列表（通过用户ID参数）
      */
     @GetMapping("/user/{userId}")
     public Result<List<Transaction>> listByUserId(@PathVariable Long userId) {

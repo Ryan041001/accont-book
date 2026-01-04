@@ -31,7 +31,16 @@ public class AssetController {
     }
 
     /**
-     * 查询用户资产列表
+     * 查询用户资产列表（从Token获取用户ID）
+     */
+    @GetMapping
+    public Result<List<Asset>> listMyAssets(@RequestAttribute("userId") Long userId) {
+        List<Asset> assets = assetService.findByUserId(userId);
+        return Result.success(assets);
+    }
+
+    /**
+     * 查询用户资产列表（通过用户ID参数）
      */
     @GetMapping("/user/{userId}")
     public Result<List<Asset>> listByUserId(@PathVariable Long userId) {
@@ -43,9 +52,9 @@ public class AssetController {
      * 创建资产账户
      */
     @PostMapping
-    public Result<Asset> create(@RequestBody CreateAssetRequest request) {
+    public Result<Asset> create(@RequestAttribute("userId") Long userId, @RequestBody CreateAssetRequest request) {
         Asset asset = Asset.builder()
-                .userId(request.getUserId())
+                .userId(userId)
                 .name(request.getName())
                 .balance(request.getBalance() != null ? request.getBalance() : BigDecimal.ZERO)
                 .build();
@@ -76,7 +85,6 @@ public class AssetController {
      */
     @lombok.Data
     public static class CreateAssetRequest {
-        private Long userId;
         private String name;
         private BigDecimal balance;
     }

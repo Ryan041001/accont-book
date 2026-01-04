@@ -31,3 +31,14 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Logs ###
+*.log
+backend.log
+/tmp/
+
+### Node ###
+node_modules/
+package-lock.json
+accont-boot-frontend/node_modules/
+accont-boot-frontend/dist/
