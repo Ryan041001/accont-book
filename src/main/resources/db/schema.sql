@@ -106,3 +106,17 @@ CREATE TABLE tb_daily_statistics (
     INDEX idx_stat_date (stat_date),
     INDEX idx_user_id (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='日统计预计算表';
+
+-- 分类统计预计算表
+DROP TABLE IF EXISTS tb_category_statistics;
+CREATE TABLE tb_category_statistics (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+    user_id BIGINT NOT NULL COMMENT '用户ID',
+    stat_month VARCHAR(7) NOT NULL COMMENT '统计月份，如 2025-12',
+    category_name VARCHAR(50) NOT NULL COMMENT '分类名称',
+    type TINYINT NOT NULL COMMENT '类型: 1-支出, 2-收入',
+    total_amount DECIMAL(15, 2) DEFAULT 0.00 COMMENT '总金额',
+    trans_count INT DEFAULT 0 COMMENT '交易笔数',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    UNIQUE KEY uk_user_month_cat (user_id, stat_month, category_name, type)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='分类统计预计算表';

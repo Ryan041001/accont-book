@@ -73,8 +73,14 @@ public class TransactionMessageListener {
                 1  // 交易笔数增加1
             );
             
-            log.info("统计数据预计算完成: userId={}, statDate={}, income={}, expense={}, result={}", 
-                     userId, statDate, incomeAmount, expenseAmount, result);
+            // 新增：更新分类统计表
+            String month = transTimeStr.substring(0, 7); // yyyy-MM
+            String category = transaction.get("category").toString();
+            
+            statisticsMapper.insertOrUpdateCategoryStat(userId, month, category, type, amount);
+
+            log.info("统计数据预计算完成: userId={}, statDate={}, category={}, income={}, expense={}, result={}", 
+                     userId, statDate, category, incomeAmount, expenseAmount, result);
         } catch (Exception e) {
             log.error("处理交易消息失败: {}", message, e);
             // 可以选择抛出异常让消息重试，或者记录到死信队列

@@ -1,8 +1,6 @@
 package com.shenzhewei.statistics.service.impl;
 
-import com.shenzhewei.common.api.dto.CategoryStatisticsDTO;
-import com.shenzhewei.common.api.feign.TransactionFeignClient;
-import com.shenzhewei.common.core.Result;
+
 import com.shenzhewei.statistics.entity.CategoryStatistics;
 import com.shenzhewei.statistics.entity.DailyStatistics;
 import com.shenzhewei.statistics.entity.MonthlyStatistics;
@@ -32,7 +30,7 @@ import java.util.stream.Collectors;
 public class StatisticsServiceImpl implements StatisticsService {
 
     private final StatisticsMapper statisticsMapper;
-    private final TransactionFeignClient transactionFeignClient;
+
     private static final DateTimeFormatter MONTH_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM");
 
     @Override
@@ -88,42 +86,24 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     public List<CategoryStatistics> getCategoryStatistics(Long userId, String month, Integer type) {
-        // 通过 Feign 调用 transaction-service 获取分类统计数据
-        log.info("通过 Feign 调用 transaction-service 获取分类统计: userId={}, month={}, type={}", 
-                 userId, month, type);
-        
-        Result<List<CategoryStatisticsDTO>> result = transactionFeignClient.getCategoryStatistics(userId, month, type);
-        
-        if (result.getCode() != 200 || result.getData() == null) {
-            log.warn("调用 transaction-service 失败: code={}, message={}", result.getCode(), result.getMessage());
-            return new ArrayList<>();
-        }
-        
-        List<CategoryStatisticsDTO> dtoList = result.getData();
+        // 修改后：直接查自己的 Mapper (解耦)
+        log.info("查询本地分类统计数据: userId={}, month={}, type={}", userId, month, type);
+
+        List<CategoryStatistics> statisticsList = statisticsMapper.selectCategoryStats(userId, month, type);
         
         // 计算总金额用于百分比
-        BigDecimal totalSum = dtoList.stream()
-                .map(CategoryStatisticsDTO::getTotalAmount)
+        BigDecimal totalSum = statisticsList.stream()
+                .map(CategoryStatistics::getTotalAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        // 转换为 CategoryStatistics 并计算百分比
-        List<CategoryStatistics> statisticsList = new ArrayList<>();
-        for (CategoryStatisticsDTO dto : dtoList) {
+        // 计算百分比
+        for (CategoryStatistics stat : statisticsList) {
             double percentage = totalSum.compareTo(BigDecimal.ZERO) > 0 
-                    ? dto.getTotalAmount().divide(totalSum, 4, RoundingMode.HALF_UP).doubleValue() * 100 
+                    ? stat.getTotalAmount().divide(totalSum, 4, RoundingMode.HALF_UP).doubleValue() * 100 
                     : 0;
-            
-            statisticsList.add(CategoryStatistics.builder()
-                    .userId(dto.getUserId())
-                    .category(dto.getCategory())
-                    .type(dto.getType())
-                    .totalAmount(dto.getTotalAmount())
-                    .transactionCount(dto.getTransactionCount())
-                    .percentage(percentage)
-                    .build());
+            stat.setPercentage(percentage);
         }
         
-        log.info("分类统计数据获取成功: count={}", statisticsList.size());
         return statisticsList;
     }
 

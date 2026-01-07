@@ -1,5 +1,6 @@
 package com.shenzhewei.statistics.mapper;
 
+import com.shenzhewei.statistics.entity.CategoryStatistics;
 import com.shenzhewei.statistics.entity.DailyStatistics;
 import org.apache.ibatis.annotations.*;
 
@@ -83,4 +84,40 @@ public interface StatisticsMapper {
             "WHERE user_id = #{userId} AND stat_date = #{statDate}")
     DailyStatistics findByDate(@Param("userId") Long userId,
                                 @Param("statDate") LocalDate statDate);
+
+    /**
+     * 插入或更新分类统计数据（幂等操作）
+     *
+     * @param userId 用户ID
+     * @param month 统计月份
+     * @param category 分类名称
+     * @param type 类型
+     * @param amount 金额
+     */
+    @Insert("INSERT INTO tb_category_statistics (user_id, stat_month, category_name, type, total_amount, trans_count) " +
+            "VALUES (#{userId}, #{month}, #{category}, #{type}, #{amount}, 1) " +
+            "ON DUPLICATE KEY UPDATE " +
+            "total_amount = total_amount + #{amount}, " +
+            "trans_count = trans_count + 1")
+    int insertOrUpdateCategoryStat(@Param("userId") Long userId,
+                                   @Param("month") String month,
+                                   @Param("category") String category,
+                                   @Param("type") Integer type,
+                                   @Param("amount") BigDecimal amount);
+
+    /**
+     * 查询分类统计数据
+     *
+     * @param userId 用户ID
+     * @param month 统计月份
+     * @param type 类型
+     * @return 分类统计列表
+     */
+    @Select("SELECT user_id, category_name as category, type, total_amount, trans_count as transactionCount " +
+            "FROM tb_category_statistics " +
+            "WHERE user_id = #{userId} AND stat_month = #{month} AND type = #{type} " +
+            "ORDER BY total_amount DESC")
+    List<CategoryStatistics> selectCategoryStats(@Param("userId") Long userId,
+                                                 @Param("month") String month,
+                                                 @Param("type") Integer type);
 }
