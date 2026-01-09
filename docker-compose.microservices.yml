@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   # ==================== 中间件 ====================
@@ -24,7 +24,8 @@ services:
       --character-set-client-handshake=FALSE
       --init-connect='SET NAMES utf8mb4'
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot123" ]
+      test:
+        ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot123"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -44,7 +45,7 @@ services:
       - "8848:8848"
       - "9848:9848"
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8848/nacos/" ]
+      test: ["CMD", "curl", "-f", "http://localhost:8848/nacos/"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -64,7 +65,7 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     healthcheck:
-      test: [ "CMD", "rabbitmq-diagnostics", "ping" ]
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -119,23 +120,61 @@ services:
     networks:
       - accont-network
 
-  asset-service:
+  asset-service-1:
     build:
       context: ./microservices/asset-service
       dockerfile: Dockerfile
-    # 移除 container_name 以支持多实例
+    container_name: accont-asset-1
     restart: unless-stopped
     environment:
       NACOS_SERVER: nacos:8848
       MYSQL_HOST: mysql
       MYSQL_USER: accont
       MYSQL_PASSWORD: accont123
-    # 不固定端口映射，让 Docker 自动分配
-    # 通过 Nacos 服务发现访问
-    expose:
-      - "8082"
-    deploy:
-      replicas: 3 # 启动3个实例
+    ports:
+      - "8082:8082"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      nacos:
+        condition: service_healthy
+    networks:
+      - accont-network
+
+  asset-service-2:
+    build:
+      context: ./microservices/asset-service
+      dockerfile: Dockerfile
+    container_name: accont-asset-2
+    restart: unless-stopped
+    environment:
+      NACOS_SERVER: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: accont
+      MYSQL_PASSWORD: accont123
+    ports:
+      - "8092:8082"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      nacos:
+        condition: service_healthy
+    networks:
+      - accont-network
+
+  asset-service-3:
+    build:
+      context: ./microservices/asset-service
+      dockerfile: Dockerfile
+    container_name: accont-asset-3
+    restart: unless-stopped
+    environment:
+      NACOS_SERVER: nacos:8848
+      MYSQL_HOST: mysql
+      MYSQL_USER: accont
+      MYSQL_PASSWORD: accont123
+    ports:
+      - "8102:8082"
     depends_on:
       mysql:
         condition: service_healthy
@@ -196,7 +235,6 @@ services:
 volumes:
   mysql_data:
   rabbitmq_data:
-
 
 networks:
   accont-network:

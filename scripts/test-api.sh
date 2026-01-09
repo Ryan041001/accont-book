@@ -105,7 +105,7 @@ print_header "微服务健康检查"
 
 print_test "检查所有服务..."
 ALL_UP=true
-services=("Gateway:9000" "User:8081" "Asset:8082" "Transaction:8083" "Statistics:8084")
+services=("Gateway:9000" "User:8081" "Asset-1:8082" "Asset-2:8092" "Asset-3:8102" "Transaction:8083" "Statistics:8084")
 
 for svc in "${services[@]}"; do
     name="${svc%:*}"

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================
-# 开发环境快速启动脚本 (修复版)
+# 开发环境快速启动脚本
 # 用法: ./dev-start.sh
 # ============================================================
 
@@ -18,21 +18,33 @@ NC='\033[0m'
 echo -e "${GREEN}===== 微服务开发环境启动 =====${NC}"
 echo ""
 
-# 微服务目录
-MICROSERVICES_DIR="$PROJECT_ROOT/microservices"
+# 1. 检查并启动基础设施
+echo -e "${GREEN}[1/4] 检查基础设施...${NC}"
 
-# 创建日志目录
-mkdir -p "$MICROSERVICES_DIR/logs"
+if ! docker ps | grep -q accont-mysql; then
+    echo "启动 MySQL..."
+    cd "$PROJECT_ROOT"
+    docker-compose -f docker-compose.microservices.yml up -d mysql
+fi
 
-# 1. 启动基础设施
-echo -e "${GREEN}[1/5] 启动基础设施...${NC}"
-cd "$PROJECT_ROOT"
-docker compose -f docker-compose.microservices.yml up -d mysql nacos rabbitmq
+if ! docker ps | grep -q accont-nacos; then
+    echo "启动 Nacos..."
+    docker-compose -f docker-compose.microservices.yml up -d nacos
+fi
+
+if ! docker ps | grep -q accont-rabbitmq; then
+    echo "启动 RabbitMQ..."
+    docker-compose -f docker-compose.microservices.yml up -d rabbitmq
+fi
+
+if ! docker ps | grep -q accont-sentinel; then
+    echo "启动 Sentinel..."
+    docker-compose -f docker-compose.microservices.yml up -d sentinel-dashboard
+fi
 
 echo -e "${YELLOW}等待基础设施就绪...${NC}"
-for i in {1..30}; do
-    if curl -s http://localhost:8848/nacos/ > /dev/null 2>&1 && \
-       docker exec accont-mysql mysqladmin ping -h localhost -uroot -proot123 2>/dev/null | grep -q alive; then
+for i in {1..20}; do
+    if curl -s http://localhost:8848/nacos/ > /dev/null 2>&1; then
         echo -e "${GREEN}基础设施已就绪${NC}"
         break
     fi
@@ -41,87 +53,63 @@ for i in {1..30}; do
 done
 echo ""
 
-# 2. 检查JAR文件
-echo -e "${GREEN}[2/5] 检查JAR文件...${NC}"
+# 2. 构建JAR包
+echo -e "${GREEN}[2/4] 检查并构建JAR包...${NC}"
+cd "$PROJECT_ROOT/microservices"
+
 NEED_BUILD=false
 for svc in gateway-service user-service asset-service transaction-service statistics-service; do
-    jar="$MICROSERVICES_DIR/$svc/target/$svc-1.0.0-SNAPSHOT.jar"
-    if [ ! -f "$jar" ] || [ $(stat -c%s "$jar") -lt 1000000 ]; then
+    jar="$svc/target/$svc-1.0.0-SNAPSHOT.jar"
+    if [ ! -f "$jar" ] || [ $(stat -c%s "$jar" 2>/dev/null || echo 0) -lt 100000 ]; then
         NEED_BUILD=true
         break
     fi
 done
 
 if [ "$NEED_BUILD" = true ]; then
-    echo -e "${YELLOW}需要构建...${NC}"
-    cd "$MICROSERVICES_DIR"
-    mvn clean package -DskipTests
+    echo "需要重新构建..."
+    mvn clean package -DskipTests -q
 fi
 
-# 3. 启动微服务
-echo ""
-echo -e "${GREEN}[3/5] 启动微服务...${NC}"
-cd "$MICROSERVICES_DIR"
+# 3. 构建并启动微服务
+echo -e "${GREEN}[3/4] 启动微服务...${NC}"
+cd "$PROJECT_ROOT"
 
-echo "  启动 gateway-service (9000)..."
-java -jar gateway-service/target/gateway-service-1.0.0-SNAPSHOT.jar > logs/gateway.log 2>&1 &
-sleep 8
+# 检查是否有问题容器需要清理
+echo "检查并清理问题容器..."
+docker ps -a | grep -E 'Created|Exited.*accont-' | awk '{print $1}' | xargs -r docker rm -f 2>/dev/null || true
 
-echo "  启动 user-service (8081)..."
-java -jar user-service/target/user-service-1.0.0-SNAPSHOT.jar > logs/user.log 2>&1 &
+# 使用 docker-compose up -d 启动所有服务（避免 ContainerConfig 错误）
+echo "启动所有服务..."
+docker-compose -f docker-compose.microservices.yml up -d
 
-echo "  启动 asset-service (8082)..."
-java -jar asset-service/target/asset-service-1.0.0-SNAPSHOT.jar > logs/asset.log 2>&1 &
-sleep 5
-
-echo "  启动 transaction-service (8083)..."
-java -jar transaction-service/target/transaction-service-1.0.0-SNAPSHOT.jar > logs/transaction.log 2>&1 &
-sleep 10
-
-echo "  启动 statistics-service (8084)..."
-java -jar statistics-service/target/statistics-service-1.0.0-SNAPSHOT.jar > logs/statistics.log 2>&1 &
+echo -e "${YELLOW}等待微服务就绪...${NC}"
+sleep 15
 
 # 4. 启动前端
-echo ""
-echo -e "${GREEN}[4/5] 启动前端...${NC}"
-FRONTEND_DIR="$PROJECT_ROOT/accont-book-frontend"
-cd "$FRONTEND_DIR"
+echo -e "${GREEN}[4/4] 启动前端...${NC}"
+cd "$PROJECT_ROOT/accont-book-frontend"
 
 if [ ! -d "node_modules" ]; then
-    echo -e "${YELLOW}安装前端依赖...${NC}"
+    echo "安装前端依赖..."
     npm install
 fi
 
-echo "  启动前端开发服务器 (5173)..."
-npm run dev > "$MICROSERVICES_DIR/logs/frontend.log" 2>&1 &
-
-# 5. 等待服务就绪
-echo ""
-echo -e "${GREEN}[5/5] 等待服务就绪...${NC}"
-sleep 15
+# 停止旧的前端进程
+pkill -f "vite.*5173" 2>/dev/null || true
+nohup npm run dev > /tmp/frontend.log 2>&1 &
 
 echo ""
-echo "===== 服务状态 ====="
-for port in 9000 8081 8082 8083 8084 5173; do
-    if lsof -i:$port > /dev/null 2>&1 || curl -s "http://localhost:$port" > /dev/null 2>&1; then
-        echo -e "  端口 $port: ${GREEN}✓ 运行中${NC}"
-    else
-        echo -e "  端口 $port: ${RED}✗ 未就绪${NC}"
-    fi
-done
-
+echo -e "${GREEN}===== 启动完成！=====${NC}"
 echo ""
-echo "===== 服务端点 ====="
+echo "服务端点："
 echo "  前端:     http://localhost:5173"
 echo "  网关:     http://localhost:9000"
-echo "  用户:     http://localhost:8081"
-echo "  资产:     http://localhost:8082"
-echo "  交易:     http://localhost:8083"
-echo "  统计:     http://localhost:8084"
-echo ""
-echo "  Nacos:    http://localhost:8848/nacos/"
+echo "  Nacos:    http://localhost:8848/nacos (nacos/nacos)"
+echo "  Sentinel: http://localhost:8858 (sentinel/sentinel)"
 echo "  RabbitMQ: http://localhost:15672 (guest/guest)"
 echo ""
-echo -e "${GREEN}启动完成！${NC}"
+echo "查看服务状态: docker ps"
+echo "查看日志: docker logs -f accont-gateway"
 echo "停止服务: ./scripts/dev-stop.sh"
-echo "运行测试: ./scripts/test-api.sh"
+echo "测试API: ./scripts/test-api.sh"

@@ -103,7 +103,4 @@ fi
 echo ""
 echo "测试完成！"
 echo ""
-echo -e "${BLUE}进阶测试：异常熔断${NC}"
-echo "运行以下命令测试异常比例熔断："
-echo "  cd /home/ryan/accont-book"
-echo "  ./scripts/test-sentinel-error.sh"
+

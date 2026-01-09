@@ -58,38 +58,63 @@ start_docker() {
     print_step "构建并启动服务 (asset-service x3)"
     cd "$PROJECT_ROOT"
     
-    # 先构建镜像
-    print_info "构建微服务镜像..."
-    docker compose -f "$COMPOSE_FILE" build asset-service
+    # 清理可能有问题的容器
+    print_info "清理旧容器..."
+    docker compose -f "$COMPOSE_FILE" down 2>/dev/null || true
+    docker ps -a | grep -E 'Created|Exited.*accont-' | awk '{print $1}' | xargs -r docker rm -f 2>/dev/null || true
     
-    # 启动所有服务
+    # 启动所有服务（会自动构建）
     print_info "启动所有服务..."
     docker compose -f "$COMPOSE_FILE" up -d
     
+    # 显示端口映射
+    print_step "端口映射"
+    docker ps --format "table {{.Names}}\t{{.Ports}}" | grep -E "asset-1|asset-2|asset-3"
+    
     # 等待服务启动
     print_step "等待服务就绪..."
-    sleep 20
+    print_info "等待基础设施..."
+    sleep 10
+    
+    # 等待 Nacos 可用
+    for i in {1..30}; do
+        if curl -s http://localhost:8848/nacos/ > /dev/null 2>&1; then
+            print_success "Nacos 已就绪"
+            break
+        fi
+        sleep 1
+    done
+    
+    print_info "等待微服务启动..."
+    sleep 15
     
     # 检查 asset-service 实例数
-    print_step "检查 asset-service 实例"
-    INSTANCE_COUNT=$(docker compose -f "$COMPOSE_FILE" ps asset-service --format json 2>/dev/null | grep -c "running" || docker compose -f "$COMPOSE_FILE" ps asset-service 2>/dev/null | grep -c "Up")
-    print_info "asset-service 容器数: $INSTANCE_COUNT"
+    print_step "检查 asset-service 容器"
+    INSTANCE_COUNT=$(docker ps | grep -E "accont-asset-[123]" | grep "Up" | wc -l)
+    print_info "asset-service 运行容器数: $INSTANCE_COUNT / 3"
     
     # 检查 Nacos 注册
     print_step "检查 Nacos 服务注册"
-    sleep 5
-    NACOS_RESPONSE=$(curl -s "http://localhost:8848/nacos/v1/ns/instance/list?serviceName=asset-service" 2>/dev/null)
-    REGISTERED_COUNT=$(echo "$NACOS_RESPONSE" | grep -o '"instanceId"' | wc -l)
-    print_info "Nacos 注册实例数: $REGISTERED_COUNT"
+    for i in {1..5}; do
+        NACOS_RESPONSE=$(curl -s "http://localhost:8848/nacos/v1/ns/instance/list?serviceName=asset-service" 2>/dev/null)
+        REGISTERED_COUNT=$(echo "$NACOS_RESPONSE" | grep -o '"instanceId"' | wc -l)
+        
+        if [ "$REGISTERED_COUNT" -ge 3 ]; then
+            print_success "Nacos 注册实例数: $REGISTERED_COUNT / 3"
+            break
+        else
+            print_info "等待注册... ($i/5) 当前: $REGISTERED_COUNT / 3"
+            sleep 3
+        fi
+    done
     
     if [ "$REGISTERED_COUNT" -ge 2 ]; then
         print_success "多实例环境就绪！"
+        echo ""
+        print_info "容器内部网络: 172.21.0.x:8082 (微服务间通信)"
+        print_info "宿主机访问: localhost:8082/8092/8102"
     else
-        print_info "等待更多实例注册..."
-        sleep 10
-        NACOS_RESPONSE=$(curl -s "http://localhost:8848/nacos/v1/ns/instance/list?serviceName=asset-service" 2>/dev/null)
-        REGISTERED_COUNT=$(echo "$NACOS_RESPONSE" | grep -o '"instanceId"' | wc -l)
-        print_info "Nacos 注册实例数: $REGISTERED_COUNT"
+        print_error "警告: 只有 $REGISTERED_COUNT 个实例注册成功"
     fi
 }
 
@@ -119,7 +144,7 @@ show_status() {
     docker compose -f "$COMPOSE_FILE" ps
     
     print_step "asset-service 实例"
-    docker compose -f "$COMPOSE_FILE" ps asset-service
+    docker compose -f "$COMPOSE_FILE" ps asset-service-1 asset-service-2 asset-service-3
     
     print_step "Nacos 注册信息"
     NACOS_RESPONSE=$(curl -s "http://localhost:8848/nacos/v1/ns/instance/list?serviceName=asset-service" 2>/dev/null)
@@ -256,7 +281,7 @@ except:
     FAILOVER_SUCCESS=10  # 默认成功
     
     # 获取第一个容器 ID
-    CONTAINER_ID=$(docker compose -f "$COMPOSE_FILE" ps -q asset-service 2>/dev/null | head -1)
+    CONTAINER_ID=$(docker compose -f "$COMPOSE_FILE" ps -q asset-service-1 2>/dev/null | head -1)
     
     if [ -n "$CONTAINER_ID" ] && [ "$INSTANCE_COUNT" -ge 3 ]; then
         print_info "暂停一个实例: ${CONTAINER_ID:0:12}..."
@@ -318,12 +343,14 @@ except:
 scale_service() {
     local replicas=${1:-3}
     
-    print_header "扩缩容 asset-service 到 $replicas 个实例"
+    print_header "扩缩容 asset-service (当前使用独立服务配置)"
+    
+    print_info "当前配置使用 3 个独立的服务实例 (asset-service-1/2/3)"
+    print_info "要修改实例数，请编辑 docker-compose.microservices.yml 文件"
     
     cd "$PROJECT_ROOT"
-    docker compose -f "$COMPOSE_FILE" up -d --scale asset-service=$replicas
-    
-    sleep 10
+    # 显示当前状态
+    docker compose -f "$COMPOSE_FILE" ps asset-service-1 asset-service-2 asset-service-3
     
     NACOS_RESPONSE=$(curl -s "http://localhost:8848/nacos/v1/ns/instance/list?serviceName=asset-service" 2>/dev/null)
     INSTANCE_COUNT=$(echo "$NACOS_RESPONSE" | grep -o '"instanceId"' | wc -l)
@@ -345,12 +372,12 @@ show_usage() {
     echo "  stop        停止 Docker Compose 环境"
     echo "  status      查看服务状态"
     echo "  test        运行负载均衡测试"
-    echo "  scale N     扩缩容 asset-service 到 N 个实例"
+    echo "  scale       显示当前实例配置（已使用独立服务）"
     echo ""
     echo "示例:"
     echo "  $0 start           # 启动环境 (3个 asset-service 实例)"
     echo "  $0 test            # 运行负载均衡测试"
-    echo "  $0 scale 5         # 扩容到 5 个实例"
+    echo "  $0 scale           # 查看实例状态"
     echo "  $0 stop            # 停止环境"
     echo ""
 }

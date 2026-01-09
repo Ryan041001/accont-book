@@ -18,7 +18,7 @@ spring:
       # HTTP 客户端超时配置 - 让失败检测更快
       httpclient:
         connect-timeout: 2000
-        response-timeout: 5s
+        response-timeout: 15s
       discovery:
         locator:
           enabled: true
