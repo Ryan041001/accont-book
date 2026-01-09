@@ -74,7 +74,7 @@ public class TransactionMessageListener {
             );
             
             // 新增：更新分类统计表
-            String month = transTimeStr.substring(0, 7); // yyyy-MM
+            String month = statDate.format(DateTimeFormatter.ofPattern("yyyy-MM")); // 从解析后的日期获取月份
             String category = transaction.get("category").toString();
             
             statisticsMapper.insertOrUpdateCategoryStat(userId, month, category, type, amount);

@@ -29,6 +29,18 @@ public class Result<T> {
     private T data;
 
     /**
+     * 响应时间戳
+     */
+    private long timestamp;
+
+    public Result(Integer code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+        this.timestamp = System.currentTimeMillis();
+    }
+
+    /**
      * 成功响应（无数据）
      */
     public static <T> Result<T> success() {
